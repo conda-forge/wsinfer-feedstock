@@ -1,5 +1,5 @@
 {% set name = "wsinfer" %}
-{% set version = "0.4.1" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wsinfer-{{ version }}.tar.gz
-  sha256: b466f24bb45370b62192ee4cfd5b09ff91bfac493a72e5749aebf3f2386c1bc4
+  sha256: b744c95d14e0c5561a118fae5713a585e910227cd0ebcf1dc2309e70667caa4d
 
 build:
   noarch: python
