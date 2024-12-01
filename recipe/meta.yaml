@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wsinfer-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wsinfer-{{ version }}.tar.gz
   sha256: b201dd2213178bbdf5b7ee037a360cd7c5a1983738a83f9f5ef22efbbae6c422
 
 build:
@@ -14,16 +14,16 @@ build:
   entry_points:
     - wsinfer = wsinfer.cli.cli:cli
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=45
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - click >=8.0,<9,!=8.1.4,!=8.1.5
     - h5py
     - numpy
@@ -43,6 +43,8 @@ requirements:
     - wsinfer-zoo
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - wsinfer
   commands:
